@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "CloudFormation template for deploying an Amazon EKS cluster with a managed node group"
+
+Resources:
+  EksCluster:
+    Type: "AWS::EKS::Cluster"
+    Properties:
+      Name: "devops-eks-cluster"
+      RoleArn: !Sub "arn:aws:iam::${AWS::AccountId}:role/EKSClusterRole"
+      ResourcesVpcConfig:
+        SubnetIds:
+          - subnet-0c047132bff549128 
+          - subnet-01d449f2f9885f441 
+          - subnet-0ee429fadb7707fad  
+        SecurityGroupIds:
+          - sg-026e02291f2573e6a  # Corrected Security Group ID
+        EndpointPrivateAccess: false
+        EndpointPublicAccess: true
+
+  NodeGroup:
+    Type: "AWS::EKS::Nodegroup"
+    Properties:
+      ClusterName: !Ref EksCluster
+      NodeRole: !Sub "arn:aws:iam::${AWS::AccountId}:role/EKSNodeRole"
+      Subnets:
+        - subnet-0c047132bff549128 
+        - subnet-01d449f2f9885f441 
+        - subnet-0ee429fadb7707fad  
+      InstanceTypes:
+        - t3.medium
+      ScalingConfig:
+        MinSize: 1
+        MaxSize: 3
+        DesiredSize: 2
+
+Outputs:
+  ClusterName:
+    Description: "EKS Cluster Name"
+    Value: !Ref EksCluster
+
+  NodeGroupName:
+    Description: "Node Group Name"
+    Value: !Ref NodeGroup

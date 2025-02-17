@@ -23,12 +23,12 @@ This project demonstrates a **full DevOps pipeline** using **AWS EKS, Kubernetes
   
 ## Prerequisites
 Ensure you have installed the following before deploying this project
-- **AWS CLI** (Configured with your IAM credentials)
-- **kubectl** (For interacting with Kubernetes clusters)
-- **eksctl** (For managing EKS clusters)
-- **Docker** (For containerizing applications)
-- **GitHub CLI (gh)** (For managing repositories)
-- **Git** (For version control)
+- **AWS CLI:** Configured with your IAM credentials
+- **kubectl:** For interacting with Kubernetes clusters
+- **eksctl:** For managing EKS clusters
+- **Docker:** For containerizing applications
+- **GitHub CLI (gh):** For managing repositories
+- **Git:** For version control
 
 ## Deployment Steps
 1. Clone the Repository

@@ -52,35 +52,50 @@ In order to avoid excess costs, follow these steps to **shut down** and **restar
 
 ### **Shutdown The Application**
 #### 1. Scale Down the Node Group
-```bash
-- aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=0,maxSize=1,desiredSize=0
+```
+aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=0,maxSize=1,desiredSize=0
+```
 
 #### 2. Verify the Node Status
-- kubectl get nodes
-  - You should see "SchedulingDisabled" on all nodes.
+```
+kubectl get nodes
+```
+- You should see "SchedulingDisabled" on all nodes.
 
 ### **Run the Application**
 #### 1. Scale Up the Node Group
-- aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=1,maxSize=2,desiredSize=1
-  - This ensures that at least one node is running to host your application.
+```
+aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=1,maxSize=2,desiredSize=1
+```
+This ensures that at least one node is running to host your application.
 
 #### 2. Uncordon the Nodes (Allow Scheduling)**
-- kubectl uncordon ip-192-168-30-221.us-east-2.compute.internal
-- kubectl uncordon ip-192-168-81-20.us-east-2.compute.internal
+```
+kubectl uncordon ip-192-168-30-221.us-east-2.compute.internal
+kubectl uncordon ip-192-168-81-20.us-east-2.compute.internal
+```
 
 #### 3. Restart the Deployment
-- kubectl rollout restart deployment nodejs-app
+```
+kubectl rollout restart deployment nodejs-app
+```
 
 #### 4. Verify Everything is Running
-- kubectl get nodes
-- kubectl get pods
-- kubectl get services
-  - Nodes should be "Ready" (no SchedulingDisabled).
-  - Pods should be "Running".
-  - Services should show your LoadBalancer EXTERNAL-IP.
+```
+kubectl get nodes
+kubectl get pods
+kubectl get services
+- Nodes should be "Ready" (no SchedulingDisabled).
+- Pods should be "Running".
+- Services should show your LoadBalancer EXTERNAL-IP.
+```
 
 ### If you need to check your EKS Node Group, run:
-- aws eks describe-nodegroup --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX
+```
+aws eks describe-nodegroup --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX
+```
 
 ### If the website doesn't work after startup, check the EXTERNAL-IP of your service:**
+```
 - kubectl get services
+```

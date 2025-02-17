@@ -33,7 +33,7 @@ Ensure you have installed the following before deploying this project
 ## Deployment Steps
 1. Clone the Repository
 
-##Security Considerations
+## Security Considerations
 1. **AWS IAM Roles & Policies**
   - Configured to follow least privilege access principles.
   - Policies are attached to EKS nodes via IAM roles.
@@ -47,7 +47,7 @@ Ensure you have installed the following before deploying this project
   - AWS CloudWatch captures container logs.
   - Grafana (optional) can be used for visualization.
 
-##How to shutdown & rerun the application
+## How to shutdown & rerun the application
 In order to avoid excess costs, it's important to scale down the application when not in use.
 
 **Shutdown The Application**

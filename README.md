@@ -131,6 +131,6 @@ aws eks describe-nodegroup --cluster-name devops-eks-cluster --nodegroup-name No
 
 ## Maintainer
 **Caleb Nartey**
-https://github.com/cnart003
-www.linkedin.com/in/calebnartey
-portfolio website coming soon!
+- https://github.com/cnart003
+- www.linkedin.com/in/calebnartey
+- portfolio website coming soon!

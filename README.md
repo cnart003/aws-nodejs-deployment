@@ -52,26 +52,26 @@ In order to avoid excess costs, it's important to scale down the application whe
 
 **Shutdown The Application**
 
-Scale Down the Node Group
+1. Scale Down the Node Group
 aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=0,maxSize=1,desiredSize=0
 
-Step 2: Verify the Node Status
+2. Verify the Node Status
 kubectl get nodes
   - You should see "SchedulingDisabled" on all nodes.
 
 **Run the Application**
-Step 1: Scale Up the Node Group
+1. Scale Up the Node Group
 aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=1,maxSize=2,desiredSize=1
   - This ensures that at least one node is running to host your application.
 
-Step 2: Uncordon the Nodes (Allow Scheduling)
+2. Uncordon the Nodes (Allow Scheduling)
 kubectl uncordon ip-192-168-30-221.us-east-2.compute.internal
 kubectl uncordon ip-192-168-81-20.us-east-2.compute.internal
 
-Step 3: Restart the Deployment
+3. Restart the Deployment
 kubectl rollout restart deployment nodejs-app
 
-Step 4: Verify Everything is Running
+4. Verify Everything is Running
 kubectl get nodes
 kubectl get pods
 kubectl get services

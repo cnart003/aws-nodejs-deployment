@@ -52,7 +52,7 @@ In order to avoid excess costs, it's important to scale down the application whe
 
 **Shutdown The Application**
 
-1. Scale Down the Node Group
+**1. Scale Down the Node Group**
 - aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=0,maxSize=1,desiredSize=0
 
 2. Verify the Node Status

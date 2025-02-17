@@ -12,8 +12,8 @@ This project demonstrates a **full DevOps pipeline** using **AWS EKS, Kubernetes
   - CloudWatch & Grafana (Optional): Logging and monitoring added to enhance security.
 
 ## Technologies Used
-**Cloud Provider:** AWS (EKS, ECR, IAM, CloudFormation, CloudWatch)
-**Container Orchestration:** Kubernetes (kubectl, eksctl)
+- **Cloud Provider:** AWS (EKS, ECR, IAM, CloudFormation, CloudWatch)
+- **Container Orchestration:** Kubernetes (kubectl, eksctl)
 **CI/CD:** GitHub Actions
 **Infrastructure as Code (IaC):** CloudFormation
 **Containerization:** Docker

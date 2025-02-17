@@ -52,6 +52,7 @@ In order to avoid excess costs, follow these steps to **shut down** and **restar
 
 ### **Shutdown The Application**
 #### 1. Scale Down the Node Group
+```bash
 - aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=0,maxSize=1,desiredSize=0
 
 #### 2. Verify the Node Status

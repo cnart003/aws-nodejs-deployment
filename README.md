@@ -32,6 +32,11 @@ Ensure you have installed the following before deploying this project
 
 ## Deployment Steps
 1. Clone the Repository
+2. Authenticate with AWS CLI
+3. Deploy Kubernetes Cluster
+4. Build and Push Docker Image
+5. Apply Kubernetes Configurations
+6. Enable Logging & Monitoring (CloudWatch)
 
 ## Security Considerations
 1. **AWS IAM Roles & Policies**

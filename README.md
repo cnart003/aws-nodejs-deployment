@@ -14,12 +14,12 @@ This project demonstrates a **full DevOps pipeline** using **AWS EKS, Kubernetes
 ## Technologies Used
 - **Cloud Provider:** AWS (EKS, ECR, IAM, CloudFormation, CloudWatch)
 - **Container Orchestration:** Kubernetes (kubectl, eksctl)
-**CI/CD:** GitHub Actions
-**Infrastructure as Code (IaC):** CloudFormation
-**Containerization:** Docker
-**Programming Language:** Node.js
-**Monitoring & Logging:** AWS CloudWatch, Fluent Bit (optional)
-**Security:** IAM roles, AWS Secrets Manager
+- **CI/CD:** GitHub Actions
+- **Infrastructure as Code (IaC):** CloudFormation
+- **Containerization:** Docker
+- **Programming Language:** Node.js
+- **Monitoring & Logging:** AWS CloudWatch, Fluent Bit (optional)
+- **Security:** IAM roles, AWS Secrets Manager
   
 ## Prerequisites
 Ensure you have installed the following before deploying this project

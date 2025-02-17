@@ -37,10 +37,12 @@ git clone https://github.com/cnart003/aws-devops-nodejs.git
 cd aws-devops-nodejs
 ```
 ### 2. Authenticate with AWS CLI
+Ensure AWS CLI is configured with credentials:
 ```
 aws configure
 ```
 ### 3. Deploy Kubernetes Cluster
+If the cluster isn’t created yet:
 ```
 eksctl create cluster --name devops-eks-cluster --region us-east-2 --nodegroup-name nodejs-app-nodes --node-type t3.medium --nodes 2
 ```
@@ -55,6 +57,7 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
 ### 6. Enable Logging & Monitoring (CloudWatch)
+To forward logs to AWS CloudWatch:
 ```
 kubectl logs -f <pod-name>
 ```

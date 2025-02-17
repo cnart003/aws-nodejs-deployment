@@ -12,14 +12,14 @@ This project demonstrates a **full DevOps pipeline** using **AWS EKS, Kubernetes
   - CloudWatch & Grafana (Optional): Logging and monitoring added to enhance security.
 
 ## Technologies Used
-- Cloud Provider: AWS (EKS, ECR, IAM, CloudFormation, CloudWatch)
-- Container Orchestration: Kubernetes (kubectl, eksctl)
-- CI/CD: GitHub Actions
-- Infrastructure as Code (IaC): CloudFormation
-- Containerization: Docker
-- Programming Language: Node.js
-- Monitoring & Logging: AWS CloudWatch, Fluent Bit (optional)
-- Security: IAM roles, AWS Secrets Manager
+**- Cloud Provider:** AWS (EKS, ECR, IAM, CloudFormation, CloudWatch)
+**- Container Orchestration:** Kubernetes (kubectl, eksctl)
+**- CI/CD:** GitHub Actions
+**- Infrastructure as Code (IaC):** CloudFormation
+**- Containerization:** Docker
+**- Programming Language:** Node.js
+**- Monitoring & Logging:** AWS CloudWatch, Fluent Bit (optional)
+**- Security:** IAM roles, AWS Secrets Manager
   
 ## Prerequisites
 Ensure you have installed the following before deploying this project
@@ -74,7 +74,7 @@ aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-na
 ```
 This ensures that at least one node is running to host your application.
 
-#### 2. Uncordon the Nodes (Allow Scheduling)**
+#### 2. Uncordon the Nodes (Allow Scheduling)
 ```
 kubectl uncordon ip-192-168-30-221.us-east-2.compute.internal
 kubectl uncordon ip-192-168-81-20.us-east-2.compute.internal

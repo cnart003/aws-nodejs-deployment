@@ -39,16 +39,16 @@ Ensure you have installed the following before deploying this project
 6. Enable Logging & Monitoring (CloudWatch)
 
 ## Security Considerations
-1. **AWS IAM Roles & Policies**
+### AWS IAM Roles & Policies
   - Configured to follow least privilege access principles.
   - Policies are attached to EKS nodes via IAM roles.
-3. **Secrets Management**
+### Secrets Management
   - Environment variables & credentials are stored securely in AWS Secrets Manager.
   - Avoids hardcoding sensitive data in the repository.
-4. **CI/CD Security**
+### CI/CD Security
   - GitHub Actions secrets used to handle AWS credentials safely.
   - Docker image scanning before pushing to AWS ECR.
-5. **Logging & Monitoring**
+### Logging & Monitoring
   - AWS CloudWatch captures container logs.
   - Grafana (optional) can be used for visualization.
 

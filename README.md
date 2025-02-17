@@ -2,14 +2,14 @@
 ## Overview
 This project demonstrates a **full DevOps pipeline** using **AWS EKS, Kubernetes, Docker, Terraform, and GitHub Actions** to deploy a **Node.js application** with security best practices and logging.
 ##Key Features
-- Automated CI/CD: GitHub Actions deploys the app to AWS EKS.
-- Infrastructure as Code (IaC): The EKS cluster is provisioned with AWS CloudFormation.
-- Containerized Deployment: The application is containerized with Docker and stored in AWS ECR.
-- Scalability & Monitoring: Kubernetes Autoscaling and AWS CloudWatch Logs for real-time monitoring.
-- Security Best Practices:
-  - IAM Roles & Policies: Follows the least privilege principle.
-  - AWS Secrets Manager: Secures environment variables and sensitive data.
-  - CloudWatch & Grafana (Optional): Logging and monitoring added to enhance security.
+- **Automated CI/CD:** GitHub Actions deploys the app to AWS EKS.
+- **Infrastructure as Code (IaC):** The EKS cluster is provisioned with AWS CloudFormation.
+- **Containerized Deployment:** The application is containerized with Docker and stored in AWS ECR.
+- **Scalability & Monitoring:** Kubernetes Autoscaling and AWS CloudWatch Logs for real-time monitoring.
+- **Security Best Practices:**
+  - **IAM Roles & Policies:** Follows the least privilege principle.
+  - **AWS Secrets Manager:** Secures environment variables and sensitive data.
+  - **CloudWatch & Grafana (Optional):** Logging and monitoring added to enhance security.
 
 ## Technologies Used
 - **Cloud Provider:** AWS (EKS, ECR, IAM, CloudFormation, CloudWatch)

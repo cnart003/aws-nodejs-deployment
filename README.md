@@ -31,12 +31,33 @@ Ensure you have installed the following before deploying this project
 - **Git:** For version control
 
 ## Deployment Steps
-1. Clone the Repository
-2. Authenticate with AWS CLI
-3. Deploy Kubernetes Cluster
-4. Build and Push Docker Image
-5. Apply Kubernetes Configurations
-6. Enable Logging & Monitoring (CloudWatch)
+### 1. Clone the Repository
+```
+git clone https://github.com/cnart003/aws-devops-nodejs.git
+cd aws-devops-nodejs
+```
+### 2. Authenticate with AWS CLI
+```
+aws configure
+```
+### 3. Deploy Kubernetes Cluster
+```
+eksctl create cluster --name devops-eks-cluster --region us-east-2 --nodegroup-name nodejs-app-nodes --node-type t3.medium --nodes 2
+```
+### 4. Build and Push Docker Image
+```
+docker build -t <your-ecr-repo-url>:latest .
+docker push <your-ecr-repo-url>:latest
+```
+### 5. Apply Kubernetes Configurations
+```
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+```
+### 6. Enable Logging & Monitoring (CloudWatch)
+```
+kubectl logs -f <pod-name>
+```
 
 ## Security Considerations
 ### AWS IAM Roles & Policies

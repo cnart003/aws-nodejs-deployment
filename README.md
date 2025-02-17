@@ -51,7 +51,8 @@ Ensure you have installed the following before deploying this project
 In order to avoid excess costs, it's important to scale down the application when not in use.
 
 **Shutdown The Application**
-Step 1: Scale Down the Node Group
+
+Scale Down the Node Group
 aws eks update-nodegroup-config --cluster-name devops-eks-cluster --nodegroup-name NodeGroup-lzWVi0rlZxfX --scaling-config minSize=0,maxSize=1,desiredSize=0
 
 Step 2: Verify the Node Status

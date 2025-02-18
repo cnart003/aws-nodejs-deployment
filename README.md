@@ -132,7 +132,7 @@ aws eks describe-nodegroup --cluster-name devops-eks-cluster --nodegroup-name No
 - kubectl get services
 ```
 
-## ⚠ Known Issues
+## Known Issues
 ### Fluent Bit Logging (Failed)
 - **Problem:** Fluent Bit could not assume the IAM role due to persistent **sts:AssumeRoleWithWebIdentity** authorization failures.
 - **What I Tried:**

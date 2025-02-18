@@ -18,7 +18,7 @@ This project demonstrates a **full DevOps pipeline** using **AWS EKS, Kubernetes
 - **Infrastructure as Code (IaC):** CloudFormation
 - **Containerization:** Docker
 - **Programming Language:** Node.js
-- **Monitoring & Logging:** AWS CloudWatch, Fluent Bit (optional)
+- **Monitoring & Logging:** AWS CloudWatch (Fluent Bit integration attempted but unsuccessful)
 - **Security:** IAM roles, AWS Secrets Manager
   
 ## Prerequisites
@@ -57,10 +57,12 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
 ### 6. Enable Logging & Monitoring (CloudWatch)
-To forward logs to AWS CloudWatch:
-```
-kubectl logs -f <pod-name>
-```
+By default, Kubernetes captures logs using `kubectl logs`. 
+
+#### **Fluent Bit Logging (Not Working)**
+We attempted to integrate **Fluent Bit** for log forwarding to **AWS CloudWatch**, but encountered **IAM authorization failures (`sts:AssumeRoleWithWebIdentity` not authorized)**. 
+
+As a result, **Fluent Bit log forwarding is not included** in this deployment. However, standard `kubectl logs` still provides access to pod logs.
 
 ## Security Considerations
 ### AWS IAM Roles & Policies
@@ -73,8 +75,9 @@ kubectl logs -f <pod-name>
   - GitHub Actions secrets used to handle AWS credentials safely.
   - Docker image scanning before pushing to AWS ECR.
 ### Logging & Monitoring
-  - AWS CloudWatch captures container logs.
+  - AWS CloudWatch captures container logs using `kubectl logs`.
   - Grafana (optional) can be used for visualization.
+  - **Fluent Bit was attempted but failed due to IAM issues.**
 
 ## **How to shutdown & rerun the application**
 In order to avoid excess costs, follow these steps to **shut down** and **restart** the application.
@@ -128,6 +131,17 @@ aws eks describe-nodegroup --cluster-name devops-eks-cluster --nodegroup-name No
 ```
 - kubectl get services
 ```
+
+## ⚠ Known Issues
+### Fluent Bit Logging (Failed)
+- **Problem:** Fluent Bit could not assume the IAM role due to persistent **sts:AssumeRoleWithWebIdentity** authorization failures.
+- **What I Tried:**
+  - Verified IAM role permissions and policies.
+  - Ensured the correct **OIDC provider association** in EKS.
+  - Extracted and manually validated **JWT web identity tokens**.
+  - Redeployed Fluent Bit multiple times with updated policies.
+- **Current Status:** **Logging to AWS CloudWatch via Fluent Bit is NOT working.**
+- **Alternative Logging Method:** Use `kubectl logs` to view pod logs manually.
 
 ## Maintainer
 **Caleb Nartey**

@@ -1,4 +1,5 @@
 # AWS DevOps Project – Automated Deployment with EKS, CI/CD and GitHub Actions
+![Screenshot of Running App](./images/nodejsImage.png)
 ## Overview
 This project demonstrates a **full DevOps pipeline** using **AWS EKS, Kubernetes, Docker, Terraform, and GitHub Actions** to deploy a **Node.js application** with security best practices and logging.
 ## Key Features
